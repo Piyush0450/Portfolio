@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Chaurasiya — Web Developer & AI Enthusiast</title>
+    <meta name="description" content="Portfolio of Piyush Chaurasiya — Web Development, Machine Learning, Telegram bots, and more. Clean, modern, and professional.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2316a34a'/></svg>" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --accent: #2563eb;
+            --accent-2: #0ea5a4;
+            --text: #0f172a;
+            --glass: rgba(255, 255, 255, 0.6);
+            --radius: 12px;
+            --shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+            --glass-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+            --success: #16a34a;
+        }
+
+        [data-theme='dark'] {
+            --bg: #0b1220;
+            --card: #0f1724;
+            --muted: #9aa4b2;
+            --accent: #3b82f6;
+            --accent-2: #34d399;
+            --text: #e6eef8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --shadow: 0 6px 22px rgba(2, 6, 23, 0.6);
+            --glass-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+            --success: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 90%, white 10%));
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding: 24px;
+            transition: background-color 0.35s ease, color 0.35s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 880px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 12px;
+            }
+        }
+
+        .profile-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 24px;
+            height: fit-content;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .avatar {
+            width: 86px;
+            height: 86px;
+            border-radius: 14px;
+            display: inline-block;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 28px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1.name {
+            font-size: 20px;
+            margin: 12px 0 2px;
+        }
+
+        p.role {
+            margin: 0;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .socials {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid color-mix(in srgb, var(--muted) 8%, transparent);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        section.card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.28s ease;
+        }
+
+        section.card:hover {
+            transform: translateY(-3px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: color-mix(in srgb, var(--accent) 8%, transparent);
+            color: var(--accent);
+        }
+
+        .about p {
+            margin: 0 0 12px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 520px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skill .meta {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .bar {
+            height: 10px;
+            background: color-mix(in srgb, var(--muted) 8%, transparent);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .bar > i {
+            display: block;
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            width: 0%;
+            transition: width 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid color-mix(in srgb, var(--muted) 8%, transparent);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        @media (max-width: 880px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project {
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid color-mix(in srgb, var(--muted) 6%, transparent);
+        }
+
+        .project h4 {
+            margin: 0 0 6px;
+        }
+
+        .project .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .project .tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+        }
+
+        .timeline-item .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 6px;
+        }
+
+        .timeline-item .content {
+            background: color-mix(in srgb, var(--card) 92%, transparent);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid color-mix(in srgb, var(--muted) 6%, transparent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact a {
+            display: inline-block;
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 1px solid color-mix(in srgb, var(--muted) 8%, transparent);
+            font-weight: 600;
+        }
+
+        footer {
+            opacity: 0.85;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 12px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .right {
+            margin-left: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(6px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="container">
+        <aside class="profile-card" aria-label="Profile card">
+            <div style="display: flex; gap: 14px; align-items: center;">
+                <div class="avatar" aria-hidden="true">
+                    <img src="image_001.jpg" alt="Piyush Chaurasiya">
+                </div>
+                <div>
+                    <h1 class="name">Piyush Chaurasiya</h1>
+                    <p class="role">Web Developer • AI & ML Enthusiast</p>
+                    <div class="badge">BCA — 3rd Year</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 14px; color: var(--muted); font-size: 14px;">
+                Professional, solution-focused developer who builds web interfaces and experiments with machine learning. Strong teamwork & communication; eager to learn and ship production-quality work.
+            </p>
+            
+            <div class="socials">
+                <a href="mailto:piyushchaurasiya348@gmail.com" title="Email">📧 Email</a>
+                <a href="https://www.linkedin.com/in/piyush-chaurasiya-368579252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+                <a href="https://www.fiverr.com/webdev_piyush" target="_blank" rel="noopener noreferrer">🛠 Fiverr</a>
+            </div>
+
+            <div style="margin-top: 14px; display: flex; gap: 8px; align-items: center;">
+                <button id="themeToggle" aria-pressed="false" style="padding: 8px 10px; border-radius: 10px; border: none; cursor: pointer; font-weight: 700;">Toggle Dark</button>
+                <a href="#contact" style="margin-left: auto; text-decoration: none; font-weight: 700;">Contact</a>
+            </div>
+        </aside>
+
+        <main>
+            <nav>
+                <div class="nav-links" role="navigation" aria-label="Main navigation">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="right" style="display: flex; gap: 10px; align-items: center;">
+                    <span style="color: var(--muted); font-weight: 600;">Calm professional palette</span>
+                </div>
+            </nav>
+
+            <section id="about" class="card about fade-in" tabindex="0">
+                <h2>About Me</h2>
+                <p>
+                    I am a detail-oriented developer with a professional attitude and a drive to solve real problems. I approach challenges analytically, collaborate effectively with teams, and communicate clearly with stakeholders. I'm motivated to learn modern technologies and deliver dependable solutions that improve user experience.
+                </p>
+                <ul style="margin: 0; padding-left: 18px; color: var(--muted);">
+                    <li><strong>Problem solving:</strong> Break down complex issues and iterate quickly to deliver stable fixes.</li>
+                    <li><strong>Teamwork:</strong> Comfortable working in groups, mentoring peers, and handling code reviews.</li>
+                    <li><strong>Communication:</strong> Clear, concise updates and well-documented code.</li>
+                    <li><strong>Growth mindset:</strong> Continuously learning web development, React, and ML techniques.</li>
+                </ul>
+            </section>
+
+            <section id="skills" class="card fade-in">
+                <h2>Skills</h2>
+                <div class="skills-grid" aria-hidden="false">
+                    <div class="skill">
+                        <div class="meta"><span>HTML & CSS</span><span>90%</span></div>
+                        <div class="bar"><i style="width: 90%;"></i></div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="meta"><span>JavaScript</span><span>80%</span></div>
+                        <div class="bar"><i style="width: 80%;"></i></div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="meta"><span>Python (ML basics)</span><span>70%</span></div>
+                        <div class="bar"><i style="width: 70%;"></i></div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="meta"><span>C / C++</span><span>65%</span></div>
+                        <div class="bar"><i style="width: 65%;"></i></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 14px;">
+                    <div style="font-weight: 700; margin-bottom: 8px;">Other skills</div>
+                    <div class="tags">
+                        <span class="tag">React (learning)</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">Telegram Bots</span>
+                        <span class="tag">Face / Image recognition</span>
+                        <span class="tag">Communication</span>
+                        <span class="tag">Problem-solving</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="card fade-in">
+                <h2>Projects</h2>
+                <p style="color: var(--muted); margin-top: 0; margin-bottom: 12px;">Selected projects showcasing web dev and ML experimentation. Links are included where available.</p>
+                <div class="projects">
+                    <article class="project" aria-labelledby="p1">
+                        <h4 id="p1">Face Recognition Attendance System</h4>
+                        <div class="meta">Python • OpenCV • Flask • SQLite</div>
+                        <p>Trained a simple face recognition pipeline to mark attendance for students using multiple images per student. Implemented image capture, preprocessing, and recognition logic; integrated with a lightweight web UI.</p>
+                        <div class="tech" style="margin-top: 8px;">
+                            <small class="tag">Python</small>
+                            <small class="tag">OpenCV</small>
+                            <small class="tag">Flask</small>
+                        </div>
+                        <div style="margin-top: 10px;"><a href="#" aria-label="Project link">View repo</a></div>
+                    </article>
+
+                    <article class="project" aria-labelledby="p2">
+                        <h4 id="p2">Telegram Content Bot</h4>
+                        <div class="meta">Python • python-telegram-bot • Rasa (experiment)</div>
+                        <p>Bot for automated content sharing and group moderation. Supports environment-based configuration, scheduled posts, and private-group forwarding. Built with maintainability in mind.</p>
+                        <div class="tech" style="margin-top: 8px;">
+                            <small class="tag">Python</small>
+                            <small class="tag">Telegram API</small>
+                        </div>
+                        <div style="margin-top: 10px;"><a href="#" aria-label="Project link">View repo</a></div>
+                    </article>
+
+                    <article class="project" aria-labelledby="p3">
+                        <h4 id="p3">QR Code Generator (Front-end)</h4>
+                        <div class="meta">HTML • CSS • JavaScript</div>
+                        <p>Interactive, animated QR generator that creates QR codes for text, links, and images. Focus on accessible UI and smooth animations. Designed as a single-page app using vanilla JS.</p>
+                        <div class="tech" style="margin-top: 8px;">
+                            <small class="tag">HTML</small>
+                            <small class="tag">CSS</small>
+                            <small class="tag">JS</small>
+                        </div>
+                        <div style="margin-top: 10px;"><a href="#" aria-label="Project link">Live demo</a></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="experience" class="card fade-in">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="dot" aria-hidden="true"></div>
+                        <div class="content">
+                            <div style="font-weight: 700;">Intern / Project Contributor</div>
+                            <div style="color: var(--muted); font-size: 13px;">Jun 2024 — Sep 2024</div>
+                            <div style="margin-top: 6px; color: var(--muted);">Worked on a small team to build a web dashboard and backend scripts. Responsibilities included UI implementation, bug fixes, and writing unit tests.</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="dot" aria-hidden="true"></div>
+                        <div class="content">
+                            <div style="font-weight: 700;">Personal Projects & Freelance (Fiverr)</div>
+                            <div style="color: var(--muted); font-size: 13px;">2023 — Present</div>
+                            <div style="margin-top: 6px; color: var(--muted);">Delivered small web tasks, landing pages, and maintenance jobs. Focused on clear communication and timely delivery as 'webdev_piyush'.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="card fade-in">
+                <h2>Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="dot" aria-hidden="true"></div>
+                        <div class="content">
+                            <div style="font-weight: 700;">Bachelor of Computer Applications (BCA) — 3rd year</div>
+                            <div style="color: var(--muted); font-size: 13px;">Institution: [Your College Name] — Expected graduation: 2026</div>
+                            <div style="margin-top: 6px; color: var(--muted);">Relevant coursework: DBMS, Operating Systems, Data Structures, Web Development. Notable achievements: Active in coding practice and personal projects.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="card fade-in">
+                <h2>Contact</h2>
+                <p style="color: var(--muted); margin-top: 0;">Professional contact details. Replace placeholders with actual addresses for production use.</p>
+                <div class="contact-grid">
+                    <div>
+                        <div style="font-weight: 700;">Email</div>
+                        <a href="mailto:piyushchaurasiya348@gmail.com">piyushchaurasiya348@gmail.com</a>
+                    </div>
+
+                    <div>
+                        <div style="font-weight: 700;">LinkedIn</div>
+                        <a href="https://www.linkedin.com/in/piyush-chaurasiya-368579252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">linkedin.com/in/piyush-chaurasiya</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 12px;">Or connect on Fiverr: <a href="https://www.fiverr.com/webdev_piyush" target="_blank" rel="noopener noreferrer">webdev_piyush</a></div>
+            </section>
+
+            <footer>
+                © <span id="year"></span> Piyush Chaurasiya — Built with clarity, professionalism, and continuous learning.
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        (function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            const btn = document.getElementById('themeToggle');
+            const root = document.documentElement;
+            const saved = localStorage.getItem('site-theme');
+            
+            if (saved) {
+                document.body.setAttribute('data-theme', saved);
+            }
+            
+            updateBtn();
+
+            btn.addEventListener('click', function() {
+                const current = document.body.getAttribute('data-theme');
+                const next = (current === 'dark') ? 'light' : 'dark';
+                document.body.setAttribute('data-theme', next);
+                localStorage.setItem('site-theme', next);
+                updateBtn();
+            });
+
+            function updateBtn() {
+                const t = document.body.getAttribute('data-theme');
+                btn.textContent = t === 'dark' ? 'Switch to Light' : 'Toggle Dark';
+                btn.setAttribute('aria-pressed', t === 'dark');
+            }
+
+            function animateSkills() {
+                const bars = document.querySelectorAll('.bar > i');
+                bars.forEach(function(el) {
+                    const w = el.style.width || '60%';
+                    el.style.width = '0%';
+                    setTimeout(function() {
+                        el.style.width = w;
+                    }, 120);
+                });
+            }
+
+            window.addEventListener('load', function() {
+                setTimeout(animateSkills, 220);
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+                a.addEventListener('click', function(e) {
+                    const target = a.getAttribute('href');
+                    if (target.length > 1) {
+                        e.preventDefault();
+                        const dest = document.querySelector(target);
+                        if (dest) {
+                            dest.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            function handleFirstTab(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('user-is-tabbing');
+                    window.removeEventListener('keydown', handleFirstTab);
+                }
+            }
+            
+            window.addEventListener('keydown', handleFirstTab);
+        })();
+    </script>
+</body>
+</html>
